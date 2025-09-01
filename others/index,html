@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GDSC NYCU Yearbook 2022–2023</title>
+  <meta name="description" content="GDSC NYCU Yearbook 2022–2023: KPIs, annual timeline, full event lineup, and resource links. Built with vanilla JS, Tailwind, and Chart.js; ready for GitHub Pages." />
+  <meta name="author" content="GDSC NYCU" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    @media print { .print-bg-none { background: none !important; } }
+    /* Chart container fix to avoid layout shift */
+    .chart-card { position: relative; }
+    .chart-box { position: relative; height: 16rem; }
+    @media (min-width: 768px) { .chart-box { height: 20rem; } }
+    canvas { display: block; width: 100% !important; height: 100% !important; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 backdrop-blur bg-white/80 border-b border-slate-200">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="#" class="flex items-center gap-2 font-semibold tracking-tight">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500 text-white">G</span>
+        <span>GDSC NYCU Yearbook 2022–2023</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#kpi" class="hover:text-indigo-600">KPIs</a>
+        <a href="#timeline" class="hover:text-indigo-600">Timeline</a>
+        <a href="#charts" class="hover:text-indigo-600">Charts</a>
+        <a href="#events" class="hover:text-indigo-600">Events</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="print-bg-none bg-gradient-to-br from-indigo-600 via-sky-600 to-cyan-500 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-16">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="inline-flex items-center text-xs uppercase tracking-widest text-white/80 mb-3">GDSC NYCU · 2022—2023</p>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">GDSC NYCU Yearbook:
+            <span class="opacity-90">Learn — Connect — Build — Project</span>
+          </h1>
+          <p class="mt-4 text-white/90 md:text-lg">We are the Google Developer Student Clubs chapter at National Yang Ming Chiao Tung University. Our mission: turn what students <em>learn</em> into solutions that <em>ship</em>. In 2022–2023, we partnered with NTHU, ran a structured workshop track, engaged through Women Techmakers and community mixers, guided Solution Challenge teams and Side Projects, and showcased outcomes at Google I/O Extended Hsinchu. This page consolidates our KPIs, annual timeline, full event lineup, and resource links.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#kpi" class="px-4 py-2 rounded-xl bg-white/95 text-slate-900 hover:bg-white transition">View KPIs</a>
+            <a href="#events" class="px-4 py-2 rounded-xl ring-1 ring-white/60 hover:bg-white/10">Browse Events</a>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="rounded-2xl bg-white/10 p-5">
+            <p class="text-sm text-white/80">Total Events</p>
+            <p id="kpi-total-events" class="text-4xl font-extrabold">—</p>
+          </div>
+          <div class="rounded-2xl bg-white/10 p-5">
+            <p class="text-sm text-white/80">Total RSVPs</p>
+            <p id="kpi-total-rsvps" class="text-4xl font-extrabold">—</p>
+          </div>
+          <div class="rounded-2xl bg-white/10 p-5">
+            <p class="text-sm text-white/80">Total Check-ins</p>
+            <p id="kpi-total-checkins" class="text-4xl font-extrabold">—</p>
+          </div>
+          <div class="rounded-2xl bg-white/10 p-5">
+            <p class="text-sm text-white/80">Overall Attendance Rate</p>
+            <p id="kpi-overall-rate" class="text-4xl font-extrabold">—</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPI DETAIL -->
+  <section id="kpi" class="max-w-7xl mx-auto px-4 py-12">
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <p class="text-slate-500 text-sm">Peak Monthly RSVPs</p>
+        <p class="text-3xl font-extrabold mt-1"><span id="kpi-max-month-count">—</span>
+          <span class="text-base text-slate-500 font-medium">(<span id="kpi-max-month">—</span>)</span>
+        </p>
+        <p class="mt-2 text-sm text-slate-500">Identifies growth peaks and optimal campaign windows.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <p class="text-slate-500 text-sm">Average RSVPs per Event</p>
+        <p class="text-3xl font-extrabold mt-1" id="kpi-avg-per-event">—</p>
+        <p class="mt-2 text-sm text-slate-500">Pair with topic/channel analysis to refine programming.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <p class="text-slate-500 text-sm">Avg. Unique Participants / Month (est.)</p>
+        <p class="text-3xl font-extrabold mt-1" id="kpi-avg-unique">—</p>
+        <p class="mt-2 text-sm text-slate-500">Cross-month dedupe requires full rosters; here we use within-month dedupe.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline" class="max-w-7xl mx-auto px-4 py-6">
+    <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Annual Timeline</h2>
+    <p class="text-slate-600 mt-2">From the joint kickoff in Oct–Nov 2022 to the capstone showcase at Google I/O Extended in June 2023, we followed a year-long path of <strong>Learn → Connect → Build → Project</strong>.</p>
+    <div class="mt-6 grid gap-4 md:grid-cols-2">
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <p class="text-xs uppercase tracking-widest text-slate-500">Launch</p>
+        <h3 class="font-bold text-lg">Cross-campus Kickoff (NYCU × NTHU)</h3>
+        <p class="text-sm text-slate-600">Oct–Nov 2022 · Annual vision & Side Projects kickoff · NYCU</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <p class="text-xs uppercase tracking-widest text-slate-500">Learn</p>
+        <h3 class="font-bold text-lg">Hands-on Workshop Track</h3>
+        <p class="text-sm text-slate-600">Kubernetes/Minikube, Dialogflow × LINE Bot, Android, Tableau, Firebase</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <p class="text-xs uppercase tracking-widest text-slate-500">Connect</p>
+        <h3 class="font-bold text-lg">Women Techmakers (3/15) & Cross-campus Mixers</h3>
+        <p class="text-sm text-slate-600">Inclusion, career talks, and peer networking</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6">
+        <p class="text-xs uppercase tracking-widest text-slate-500">Project</p>
+        <h3 class="font-bold text-lg">Solution Challenge & Side Projects</h3>
+        <p class="text-sm text-slate-600">Localized info session, HackMD hub, Project Leaders' Summit</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 md:col-span-2">
+        <p class="text-xs uppercase tracking-widest text-slate-500">Capstone</p>
+        <h3 class="font-bold text-lg">Google I/O Extended 2023 Hsinchu (6/3)</h3>
+        <p class="text-sm text-slate-600">GenAI, Firebase, and student project demos</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARTS -->
+  <section id="charts" class="max-w-7xl mx-auto px-4 py-12">
+    <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Metrics & Trends</h2>
+    <div class="mt-6 grid auto-rows-fr gap-6 md:grid-cols-2">
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 chart-card">
+        <p class="text-sm text-slate-500 mb-2">Monthly Events</p>
+        <div class="chart-box"><canvas id="chartEvents"></canvas></div>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 chart-card">
+        <p class="text-sm text-slate-500 mb-2">RSVPs vs. Check-ins</p>
+        <div class="chart-box"><canvas id="chartRsvp"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events" class="max-w-7xl mx-auto px-4 py-12">
+    <div class="flex items-end justify-between gap-4">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-extrabold tracking-tight">Event Lineup (15 events)</h2>
+        <p class="text-slate-600 mt-2">Covers Sep 2022 – Jul 2023. To add items, update the <code>yearbook-data</code> JSON below and the page will render new cards automatically.</p>
+      </div>
+    </div>
+
+    <div id="eventGrid" class="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3"></div>
+  </section>
+
+  <footer class="border-t border-slate-200 py-10">
+    <div class="max-w-7xl mx-auto px-4 text-sm text-slate-500">
+      <p>© 2023–2025 GDSC NYCU Yearbook</p>
+    </div>
+  </footer>
+
+  <!-- ========================= DATA (EDIT HERE) ========================= -->
+  <script id="yearbook-data" type="application/json">
+  {
+    "kpis": {
+      "totalEvents": 15,
+      "totalRsvps": 430,
+      "totalCheckins": 371,
+      "overallRate": 86.3,
+      "maxMonthlyRsvps": 153,
+      "maxMonthlyMonth": "2023-03",
+      "avgPerEvent": 61.4,
+      "avgUniquePerMonth": 80.2
+    },
+    "months": [
+      { "month": "2022-09", "events": 0, "rsvps": 0,   "checkins": 0,   "unique": 0,   "manual": 0,  "meetup": 0 },
+      { "month": "2022-10", "events": 0, "rsvps": 0,   "checkins": 0,   "unique": 0,   "manual": 0,  "meetup": 0 },
+      { "month": "2022-11", "events": 4, "rsvps": 226, "checkins": 174, "unique": 0,   "manual": 0,  "meetup": 0 },
+      { "month": "2022-12", "events": 3, "rsvps": 0,   "checkins": 0,   "unique": 0,   "manual": 0,  "meetup": 0 },
+      { "month": "2023-01", "events": 0, "rsvps": 0,   "checkins": 0,   "unique": 0,   "manual": 0,  "meetup": 0 },
+      { "month": "2023-02", "events": 1, "rsvps": 0,   "checkins": 0,   "unique": 0,   "manual": 0,  "meetup": 0 },
+      { "month": "2023-03", "events": 4, "rsvps": 153, "checkins": 127, "unique": 89,  "manual": 4,  "meetup": 0 },
+      { "month": "2023-04", "events": 1, "rsvps": 114, "checkins": 91,  "unique": 69,  "manual": 0,  "meetup": 0 },
+      { "month": "2023-05", "events": 0, "rsvps": 0,   "checkins": 0,   "unique": 0,   "manual": 0,  "meetup": 0 },
+      { "month": "2023-06", "events": 1, "rsvps": 111, "checkins": 111, "unique": 111, "manual": 41, "meetup": 0 },
+      { "month": "2023-07", "events": 1, "rsvps": 0,   "checkins": 0,   "unique": 0,   "manual": 0,  "meetup": 0 }
+    ],
+    "events": [
+      {"title":"GDSC NYCU × NTHU Member Kickoff","date":"2022-11-02","location":"NYCU Guangfu Campus","format":"Onsite","partners":["GDSC NTHU"],"speakers":["Core Team"],"topics":["Annual Vision","Community Plan"],"attendance":{"rsvps":null,"checkins":null},"links":{"slides":null,"video":null,"repo":"https://thc1006.github.io/gdg-on-campus-nycu-2022-2023/"}},
+      {"title":"UI/UX Unpacked: From Users to Interface Design","date":"2022-11-09","location":"NYCU Engineering Building IV, Room 117","format":"Onsite","partners":["WTM"],"speakers":["Eva Chu"],"topics":["UI/UX","Design Thinking"],"attendance":{"rsvps":null,"checkins":null},"links":{"slides":null,"video":null,"repo":"https://thc1006.github.io/gdg-on-campus-nycu-2022-2023/1109-uiux-explore/"}},
+      {"title":"What Is a Community: How to Learn Autonomously","date":"2022-11-16","location":"NYCU","format":"Onsite","partners":[],"speakers":["(Community)"],"topics":["Self-learning","Community Involvement"],"attendance":{"rsvps":93,"checkins":64},"links":{"slides":null,"video":null,"repo":"https://hackmd.io/@thc1006/BkELDRmGq"}},
+      {"title":"How to Start Your Own Open Source Project","date":"2022-11-23","location":"NYCU Engineering Building IV, Room 117","format":"Onsite","partners":[],"speakers":["Evan Lin (LINE DevRel)"],"topics":["Open Source","Git/GitHub","Community"],"attendance":{"rsvps":133,"checkins":110},"links":{"slides":"https://www.slideshare.net/secret/31sTGG4i2xf2K3","video":"https://www.youtube.com/watch?v=2PgGIqBT0dk","repo":null}},
+      {"title":"Crowdsource Series Kickoff × Midterm Social","date":"2022-12-07","location":"NYCU HSS Building 3, Rooms 101/102","format":"Hybrid","partners":[],"speakers":["GDSC Core"],"topics":["Google Crowdsource","Social"],"attendance":{"rsvps":null,"checkins":null},"links":{"slides":null,"video":null,"repo":"https://thc1006.github.io/gdg-on-campus-nycu-2022-2023/1207-crowdsource-series/index.html"}},
+      {"title":"Dialogflow: Build a LINE Bot Step by Step","date":"2022-12-14","location":"NYCU Guangfu Campus","format":"Onsite","partners":[],"speakers":["GDSC Team"],"topics":["Dialogflow","LINE Bot"],"attendance":{"rsvps":null,"checkins":null},"links":{"slides":null,"video":null,"repo":null}},
+      {"title":"Android from Zero","date":"2022-12-21","location":"Online","format":"Online","partners":[],"speakers":["Tim Lin (Android GDE)"],"topics":["Android","Kotlin","Compose"],"attendance":{"rsvps":null,"checkins":null},"links":{"slides":"https://www.slideshare.net/secret/tE2gX5rP7f9I6V","video":null,"repo":null}},
+      {"title":"2023 Solution Challenge — Local Info Session","date":"2023-02-01","location":"Online","format":"Online","partners":["GDSC NTHU"],"speakers":["GDSC NYCU Lead"],"topics":["Rules & Scoring","Demo Tips","SDGs"],"attendance":{"rsvps":null,"checkins":null},"links":{"slides":null,"video":"https://www.youtube.com/watch?v=aAubSF9fkic","repo":null}},
+      {"title":"Women Techmakers — International Women's Day Panel","date":"2023-03-15","location":"Online","format":"Online","partners":["WTM"],"speakers":["Women in Tech & Student Reps"],"topics":["Women in Tech","Inclusive Community"],"attendance":{"rsvps":null,"checkins":null},"links":{"slides":null,"video":null,"repo":null}},
+      {"title":"GDSC NYCU × NTHU Spring Kickoff","date":"2023-03-22","location":"NYCU HSS Building 3","format":"Onsite","partners":["GDSC NTHU"],"speakers":["Leads & Core"],"topics":["Learning Journey","Roundtable"],"attendance":{"rsvps":null,"checkins":null},"links":{"slides":null,"video":null,"repo":"https://thc1006.github.io/gdg-on-campus-nycu-2022-2023/0322-nthu-nycu-kickoff-meeting/index.html"}},
+      {"title":"Scrum Agile Workshop","date":"2023-03-24","location":"NYCU Engineering Building I, EA101 Co-creation Hub","format":"Onsite","partners":[],"speakers":["David Ko (Odd-e)"],"topics":["Scrum","Agile"],"attendance":{"rsvps":null,"checkins":null},"links":{"slides":null,"video":null,"repo":"https://thc1006.github.io/gdg-on-campus-nycu-2022-2023/0324-scrum-agile-workshop/index.html"}},
+      {"title":"Firebase Foundations: From Zero to MVP in 2 Hours","date":"2023-03-29","location":"NYCU General Building I, Room 308 + Online","format":"Hybrid","partners":["cacaFly"],"speakers":["Richard Lee (GDE)"],"topics":["Firestore","Hosting","Auth","Crashlytics"],"attendance":{"rsvps":null,"checkins":null},"links":{"slides":"https://www.slideshare.net/slideshow/firebase-2-gdsc-nycu/256972607","video":"https://www.youtube.com/watch?v=rZAND_Wtb6o","repo":null}},
+      {"title":"Flutter Fundamentals — Two-Part Course","date":"2023-04-26","location":"NYCU Science Building III, Room SC160","format":"Hybrid","partners":[],"speakers":["Ahdaa Yeh (GDG Taichung)"],"topics":["Flutter","Live Coding"],"attendance":{"rsvps":null,"checkins":null},"links":{"slides":"https://www.slideshare.net/slideshow/flutter-gdsc-nycu/257524296","video":null,"repo":null}},
+      {"title":"Google I/O Extended 2023 Hsinchu — Project Showcase","date":"2023-06-03","location":"NYCU HSS Building 3","format":"Onsite","partners":["GDSC NTHU","NYCU Units"],"speakers":["GDEs / Faculty / Industry"],"topics":["Generative AI","Firebase","Student Projects"],"attendance":{"rsvps":111,"checkins":111},"links":{"slides":"https://www.slideshare.net/slideshow/google-io-extended-2023-hsinchu/258313582","video":"https://www.youtube.com/watch?v=4gFOdHqid4A","repo":null}},
+      {"title":"Dcard Office Visit","date":"2023-07-19","location":"Dcard Taipei Office","format":"Onsite","partners":["GDSC NCCU","GDSC NTHU","GDSC NTUT"],"speakers":["Dcard Team"],"topics":["Backend","ML/AI","Career"],"attendance":{"rsvps":null,"checkins":null},"links":{"slides":null,"video":null,"repo":"https://thc1006.github.io/gdg-on-campus-nycu-2022-2023/0719-dcard-company-visit/index.html"}}
+    ]
+  }
+  </script>
+
+  <!-- ========================= RENDERER ========================= -->
+  <script>
+    const $ = (sel, ctx=document) => ctx.querySelector(sel);
+    function fmt(n) { return (n==null||isNaN(n)) ? '—' : new Intl.NumberFormat('en-US').format(n); }
+
+    // Load data safely
+    let DATA = null;
+    try {
+      const dataEl = document.getElementById('yearbook-data');
+      DATA = JSON.parse(dataEl.textContent || dataEl.innerHTML || '{}');
+    } catch (e) {
+      console.error('Failed to parse JSON:', e);
+    }
+
+    if (!DATA) {
+      console.warn('No data found; renderer aborted.');
+    } else {
+      // KPIs (compute total events from events.length to avoid drift)
+      const computedTotalEvents = (DATA.events && Array.isArray(DATA.events)) ? DATA.events.length : (DATA.kpis?.totalEvents ?? 0);
+      $('#kpi-total-events').textContent = fmt(computedTotalEvents);
+      $('#kpi-total-rsvps').textContent = fmt(DATA.kpis?.totalRsvps);
+      $('#kpi-total-checkins').textContent = fmt(DATA.kpis?.totalCheckins);
+      $('#kpi-overall-rate').textContent = (DATA.kpis?.overallRate ?? '—') + (DATA.kpis?.overallRate!=null?'%':'');
+      $('#kpi-max-month-count').textContent = fmt(DATA.kpis?.maxMonthlyRsvps);
+      $('#kpi-max-month').textContent = DATA.kpis?.maxMonthlyMonth || '—';
+      $('#kpi-avg-per-event').textContent = fmt(DATA.kpis?.avgPerEvent);
+      $('#kpi-avg-unique').textContent = fmt(DATA.kpis?.avgUniquePerMonth);
+
+      // Charts
+      const labels = (DATA.months||[]).map(m => m.month);
+      if (window.Chart) {
+        new Chart(document.getElementById('chartEvents'), {
+          type: 'bar',
+          data: { labels, datasets: [{ label: 'Events', data: DATA.months.map(m => m.events) }] },
+          options: { responsive: true, maintainAspectRatio: false, aspectRatio: 2 }
+        });
+        new Chart(document.getElementById('chartRsvp'), {
+          type: 'line',
+          data: { labels,
+            datasets: [
+              { label: 'RSVPs', data: DATA.months.map(m => m.rsvps) },
+              { label: 'Check-ins', data: DATA.months.map(m => m.checkins) }
+            ]
+          },
+          options: { responsive: true, maintainAspectRatio: false, aspectRatio: 2 }
+        });
+      }
+
+      // Render Events Grid
+      const grid = document.getElementById('eventGrid');
+      (DATA.events||[]).forEach(ev => {
+        const d = new Date(ev.date);
+        const dateStr = isNaN(d) ? ev.date : d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: '2-digit' });
+        const tags = (ev.topics || []).map(t => `<span class="px-2 py-1 rounded-lg bg-slate-100 text-xs">${t}</span>`).join('');
+        const rsvps = ev.attendance && ev.attendance.rsvps!=null ? fmt(ev.attendance.rsvps) : '—';
+        const checks = ev.attendance && ev.attendance.checkins!=null ? fmt(ev.attendance.checkins) : '—';
+        const btn = (href, text) => (href ? `<a href="${href}" target="_blank" class="text-sm px-3 py-2 rounded-lg border border-slate-200 hover:bg-slate-50">${text}</a>` : '');
+
+        const card = document.createElement('article');
+        card.className = 'rounded-2xl border border-slate-200 bg-white p-6 flex flex-col gap-4';
+        card.innerHTML = `
+          <div>
+            <p class="text-xs uppercase tracking-widest text-slate-500">${ev.format || ''}</p>
+            <h3 class="font-bold text-lg">${ev.title}</h3>
+            <p class="text-sm text-slate-600">${dateStr} · ${ev.location || ''}</p>
+          </div>
+          <div class="flex flex-wrap gap-2">${tags}</div>
+          <div class="grid grid-cols-2 gap-3">
+            <div class="rounded-xl bg-slate-50 p-3">
+              <p class="text-xs text-slate-500">RSVPs</p>
+              <p class="text-xl font-bold">${rsvps}</p>
+            </div>
+            <div class="rounded-xl bg-slate-50 p-3">
+              <p class="text-xs text-slate-500">Check-ins</p>
+              <p class="text-xl font-bold">${checks}</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2">${
+            [btn(ev.links?.slides, 'Slides'), btn(ev.links?.video, 'Recording'), btn(ev.links?.repo, 'Event Page')].join('') || '<span class="text-sm text-slate-500">(Resources to be added)</span>'
+          }</div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>
