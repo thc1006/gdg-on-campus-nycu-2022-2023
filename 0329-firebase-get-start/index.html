@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://raw.githubusercontent.com">
     <title>Firebase 基礎上手 ｜2小時由入門到精通 - 活動還原頁面</title>
+    <link rel="canonical" href="https://thc1006.github.io/gdg-on-campus-nycu-2022-2023/0329-firebase-get-start/">
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="活動回顧：GDSC NYCU 主辦的 Firebase 基礎上手工作坊。由關鍵評論網集團整合長 Richard Lee 主講，帶領學員從入門到精通。">
@@ -14,6 +20,7 @@
     <meta property="og:title" content="Firebase 基礎上手 ｜2小時由入門到精通 - 活動還原頁面">
     <meta property="og:description" content="活動回顧：GDSC NYCU 主辦的 Firebase 基礎上手工作坊。一同回顧由 Richard Lee 帶來的精彩技術分享。">
     <meta property="og:image" content="https://raw.githubusercontent.com/thc1006/gdg-on-campus-nycu-2022-2023/main/0329-firebase-get-start/assets/firebase_nLPcVMO.png">
+    <meta property="og:url" content="https://thc1006.github.io/gdg-on-campus-nycu-2022-2023/0329-firebase-get-start/">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -132,17 +139,17 @@
     <nav class="navbar sticky top-0 z-50">
         <div class="container mx-auto px-4 flex justify-between items-center h-16">
             <div class="flex items-center">
-                <a href="https://gdsc.community.dev/" class="flex-shrink-0" target="_blank">
-                    <img class="h-8" src="https://raw.githubusercontent.com/thc1006/thc1006.github.io/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/logo_dark_horizontal_097s7oa.svg" alt="GDSC Logo">
+                <a href="https://gdsc.community.dev/" class="flex-shrink-0" target="_blank" rel="noopener noreferrer">
+                    <img loading="lazy" decoding="async" class="h-8" src="https://raw.githubusercontent.com/thc1006/thc1006.github.io/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/logo_dark_horizontal_097s7oa.svg" alt="GDSC Logo">
                 </a>
             </div>
             <div class="hidden md:flex items-center space-x-8">
-                <a href="https://developers.google.com/community/dsc/" class="text-gray-600 hover:text-blue-500" target="_blank">About GDSC</a>
-                <a href="https://gdsc.community.dev/chapters/" class="text-gray-600 hover:text-blue-500" target="_blank">Chapters</a>
-                <a href="https://gdsc.community.dev/events/" class="text-gray-600 hover:text-blue-500" target="_blank">Upcoming events</a>
+                <a href="https://developers.google.com/community/dsc/" class="text-gray-600 hover:text-blue-500" target="_blank" rel="noopener noreferrer">About GDSC</a>
+                <a href="https://gdsc.community.dev/chapters/" class="text-gray-600 hover:text-blue-500" target="_blank" rel="noopener noreferrer">Chapters</a>
+                <a href="https://gdsc.community.dev/events/" class="text-gray-600 hover:text-blue-500" target="_blank" rel="noopener noreferrer">Upcoming events</a>
             </div>
             <div>
-                <a href="https://gdsc.community.dev/accounts/login/" class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600" target="_blank">Log in</a>
+                <a href="https://gdsc.community.dev/accounts/login/" class="bg-blue-500 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-600" target="_blank" rel="noopener noreferrer">Log in</a>
             </div>
         </div>
     </nav>
@@ -192,10 +199,10 @@
         <section class="mb-20">
             <h2 class="section-title">活動錦集</h2>
             <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-4 max-w-4xl mx-auto">
-                <img src="https://raw.githubusercontent.com/thc1006/gdg-on-campus-nycu-2022-2023/main/0329-firebase-get-start/assets/PXL_20230329_111634684.MP.jpg" alt="活動照片 1" class="rounded-lg shadow-md w-full h-full object-cover">
-                <img src="https://raw.githubusercontent.com/thc1006/gdg-on-campus-nycu-2022-2023/main/0329-firebase-get-start/assets/PXL_20230329_113258963.jpg" alt="活動照片 2" class="rounded-lg shadow-md w-full h-full object-cover">
-                <img src="https://raw.githubusercontent.com/thc1006/gdg-on-campus-nycu-2022-2023/main/0329-firebase-get-start/assets/PXL_20230329_131010371.MP.jpg" alt="活動照片 3" class="rounded-lg shadow-md w-full h-full object-cover">
-                <img src="https://raw.githubusercontent.com/thc1006/gdg-on-campus-nycu-2022-2023/main/0329-firebase-get-start/assets/PXL_20230329_110919833.jpg" alt="活動照片 4" class="rounded-lg shadow-md w-full h-full object-cover">
+                <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/thc1006/gdg-on-campus-nycu-2022-2023/main/0329-firebase-get-start/assets/PXL_20230329_111634684.MP.jpg" alt="活動照片 1" class="rounded-lg shadow-md w-full h-full object-cover">
+                <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/thc1006/gdg-on-campus-nycu-2022-2023/main/0329-firebase-get-start/assets/PXL_20230329_113258963.jpg" alt="活動照片 2" class="rounded-lg shadow-md w-full h-full object-cover">
+                <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/thc1006/gdg-on-campus-nycu-2022-2023/main/0329-firebase-get-start/assets/PXL_20230329_131010371.MP.jpg" alt="活動照片 3" class="rounded-lg shadow-md w-full h-full object-cover">
+                <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/thc1006/gdg-on-campus-nycu-2022-2023/main/0329-firebase-get-start/assets/PXL_20230329_110919833.jpg" alt="活動照片 4" class="rounded-lg shadow-md w-full h-full object-cover">
             </div>
         </section>
         
@@ -208,7 +215,7 @@
                     <h3 class="text-2xl font-semibold text-center mb-8 text-gray-700">主講人</h3>
                     <div class="max-w-sm mx-auto">
                         <div class="card text-center p-6">
-                            <img src="https://raw.githubusercontent.com/thc1006/gdg-on-campus-nycu-2022-2023/refs/heads/main/0329-firebase-get-start/assets/%E6%88%AA%E5%9C%96%202023-03-27%20%E4%B8%8B%E5%8D%8811.17.46.png" alt="Richard Lee" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover shadow-lg">
+                            <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/thc1006/gdg-on-campus-nycu-2022-2023/refs/heads/main/0329-firebase-get-start/assets/%E6%88%AA%E5%9C%96%202023-03-27%20%E4%B8%8B%E5%8D%8811.17.46.png" alt="Richard Lee" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover shadow-lg">
                             <div class="card-content">
                                 <h3 class="font-bold text-lg text-gray-800">Richard Lee</h3>
                                 <p class="text-gray-500 text-sm">關鍵評論網 整合長</p>
@@ -220,8 +227,8 @@
                  <div>
                     <h3 class="text-2xl font-semibold text-center mb-8 text-gray-700">主持人</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-xl mx-auto">
-                        <div class="card text-center p-6"><img src="https://raw.githubusercontent.com/thc1006/gdg-on-campus-nycu-2022-2023/main/0322-nthu-nycu-kickoff-meeting/assets/tiffany_hung.jpg" alt="Tiffany Hung" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover shadow-lg"><div class="card-content"><h3 class="font-bold text-lg text-gray-800">Tiffany Hung</h3><p class="text-gray-500 text-sm">GDSC Lead / NYCU</p></div></div>
-                        <div class="card text-center p-6"><img src="https://raw.githubusercontent.com/thc1006/gdg-on-campus-nycu-2022-2023/main/0322-nthu-nycu-kickoff-meeting/assets/GDG23%20Photo%20Frame%20-%20Yell12ow%20%E7%9A%84%E5%89%AF%E6%9C%AC%20%E7%9A%84%E5%89%AF%E6%9C%AC.png" alt="秀吉 蔡" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover shadow-lg"><div class="card-content"><h3 class="font-bold text-lg text-gray-800">秀吉 蔡</h3><p class="text-gray-500 text-sm">GDSC Lead / NYCU</p></div></div>
+                        <div class="card text-center p-6"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/thc1006/gdg-on-campus-nycu-2022-2023/main/0322-nthu-nycu-kickoff-meeting/assets/tiffany_hung.jpg" alt="Tiffany Hung" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover shadow-lg"><div class="card-content"><h3 class="font-bold text-lg text-gray-800">Tiffany Hung</h3><p class="text-gray-500 text-sm">GDSC Lead / NYCU</p></div></div>
+                        <div class="card text-center p-6"><img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/thc1006/gdg-on-campus-nycu-2022-2023/main/0322-nthu-nycu-kickoff-meeting/assets/GDG23%20Photo%20Frame%20-%20Yell12ow%20%E7%9A%84%E5%89%AF%E6%9C%AC%20%E7%9A%84%E5%89%AF%E6%9C%AC.png" alt="秀吉 蔡" class="w-28 h-28 rounded-full mx-auto mb-4 object-cover shadow-lg"><div class="card-content"><h3 class="font-bold text-lg text-gray-800">秀吉 蔡</h3><p class="text-gray-500 text-sm">GDSC Lead / NYCU</p></div></div>
                     </div>
                 </div>
             </div>
@@ -231,7 +238,7 @@
         <section class="mb-10">
             <h2 class="section-title">合作夥伴</h2>
             <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
-                <img src="https://raw.githubusercontent.com/thc1006/thc1006.github.io/refs/heads/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/%E5%9C%8B%E7%AB%8B%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E5%8D%9A%E9%9B%85%E6%9B%B8%E8%8B%91.png" alt="國立陽明交通大學博雅書苑" class="h-20 md:h-24 partner-logo">
+                <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/thc1006/thc1006.github.io/refs/heads/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/%E5%9C%8B%E7%AB%8B%E9%99%BD%E6%98%8E%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%B8%E5%8D%9A%E9%9B%85%E6%9B%B8%E8%8B%91.png" alt="國立陽明交通大學博雅書苑" class="h-20 md:h-24 partner-logo">
             </div>
         </section>
     </main>
@@ -242,7 +249,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <!-- When -->
                 <div class="info-card">
-                    <img src="https://raw.githubusercontent.com/thc1006/thc1006.github.io/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/icon_date_time.svg" alt="Date and Time Icon" class="info-icon">
+                    <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/thc1006/thc1006.github.io/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/icon_date_time.svg" alt="Date and Time Icon" class="info-icon">
                     <div>
                         <h3 class="info-title">活動時間</h3>
                         <p>2023年3月29日</p>
@@ -252,21 +259,21 @@
 
                 <!-- Where -->
                 <div class="info-card">
-                    <img src="https://raw.githubusercontent.com/thc1006/thc1006.github.io/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/icon_address.svg" alt="Address Icon" class="info-icon">
+                    <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/thc1006/thc1006.github.io/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/icon_address.svg" alt="Address Icon" class="info-icon">
                     <div>
                         <h3 class="info-title">活動地點</h3>
                         <p><b>實體：</b>國立陽明交通大學 (光復校區)</p>
                         <p class="pl-4">綜合一館 308 教室</p>
                         <p><b>線上：</b>活動錄影已發布</p>
                         <div class="mt-4 rounded-lg shadow-md overflow-hidden">
-                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.3132063068388!2d120.99478497445487!3d24.784726477978793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468360512d47fb1%3A0x256ef60b77fddb9a!2zMzAw5paw56u55biC5p2x5Y2A57ac5ZCI5LiA6aSo!5e0!3m2!1szh-TW!2stw!4v1756749163165!5m2!1szh-TW!2stw" class="w-full h-64" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                           <iframe title="活動地點地圖" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.3132063068388!2d120.99478497445487!3d24.784726477978793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468360512d47fb1%3A0x256ef60b77fddb9a!2zMzAw5paw56u55biC5p2x5Y2A57ac5ZCI5LiA6aSo!5e0!3m2!1szh-TW!2stw!4v1756749163165!5m2!1szh-TW!2stw" class="w-full h-64" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
 
                 <!-- Agenda -->
                 <div class="info-card">
-                    <img src="https://raw.githubusercontent.com/thc1006/thc1006.github.io/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/icon_agenda.svg" alt="Agenda Icon" class="info-icon">
+                    <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/thc1006/thc1006.github.io/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/icon_agenda.svg" alt="Agenda Icon" class="info-icon">
                     <div>
                         <h3 class="info-title">活動議程</h3>
                         <div class="text-sm">
@@ -285,26 +292,26 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
-                    <img src="https://raw.githubusercontent.com/thc1006/thc1006.github.io/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/logo_dark_stacked_5giak2X.svg" class="h-12" alt="Google Developer Student Clubs logo">
+                    <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/thc1006/thc1006.github.io/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/logo_dark_stacked_5giak2X.svg" class="h-12" alt="Google Developer Student Clubs logo">
                 </div>
                 <div>
                     <h5 class="font-bold mb-4">Quick Links</h5>
                     <ul class="space-y-2">
-                        <li><a href="https://gdsc.community.dev/chapters/" class="text-gray-400 hover:text-white" target="_blank">Chapters</a></li>
-                        <li><a href="https://gdsc.community.dev/events/" class="text-gray-400 hover:text-white" target="_blank">Upcoming events</a></li>
-                        <li><a href="https://developers.google.com/community/dsc/" class="text-gray-400 hover:text-white" target="_blank">About GDSC</a></li>
-                        <li><a href="https://docs.google.com/document/d/1e5nldTEybLG0ih3vgJQCiwH1-3QZnuFs4iwUiUerca8/view" class="text-gray-400 hover:text-white" target="_blank">Participation Terms</a></li>
-                        <li><a href="https://policies.google.com/privacy" class="text-gray-400 hover:text-white" target="_blank">Privacy & Terms</a></li>
+                        <li><a href="https://gdsc.community.dev/chapters/" class="text-gray-400 hover:text-white" target="_blank" rel="noopener noreferrer">Chapters</a></li>
+                        <li><a href="https://gdsc.community.dev/events/" class="text-gray-400 hover:text-white" target="_blank" rel="noopener noreferrer">Upcoming events</a></li>
+                        <li><a href="https://developers.google.com/community/dsc/" class="text-gray-400 hover:text-white" target="_blank" rel="noopener noreferrer">About GDSC</a></li>
+                        <li><a href="https://docs.google.com/document/d/1e5nldTEybLG0ih3vgJQCiwH1-3QZnuFs4iwUiUerca8/view" class="text-gray-400 hover:text-white" target="_blank" rel="noopener noreferrer">Participation Terms</a></li>
+                        <li><a href="https://policies.google.com/privacy" class="text-gray-400 hover:text-white" target="_blank" rel="noopener noreferrer">Privacy & Terms</a></li>
                     </ul>
                 </div>
                 <div>
                     <h5 class="font-bold mb-4">Social</h5>
                     <div class="flex space-x-4">
-                        <a href="https://twitter.com/googledevs" class="text-gray-400 hover:text-white" target="_blank"><i class="fab fa-twitter fa-lg"></i></a>
-                        <a href="https://www.facebook.com/Google-Developers-967415219957038/" class="text-gray-400 hover:text-white" target="_blank"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="https://www.instagram.com/googledevs/" class="text-gray-400 hover:text-white" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="https://www.linkedin.com/company/googledevelopers/" class="text-gray-400 hover:text-white" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
-                        <a href="https://www.youtube.com/googledevelopers" class="text-gray-400 hover:text-white" target="_blank"><i class="fab fa-youtube fa-lg"></i></a>
+                        <a href="https://twitter.com/googledevs" class="text-gray-400 hover:text-white" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="https://www.facebook.com/Google-Developers-967415219957038/" class="text-gray-400 hover:text-white" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="https://www.instagram.com/googledevs/" class="text-gray-400 hover:text-white" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/company/googledevelopers/" class="text-gray-400 hover:text-white" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="https://www.youtube.com/googledevelopers" class="text-gray-400 hover:text-white" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube fa-lg"></i></a>
                     </div>
                 </div>
             </div>
@@ -312,9 +319,9 @@
         <div class="footer-bottom py-4">
             <div class="container mx-auto px-4 flex justify-between items-center text-sm text-gray-500">
                 <span>© 2023 Google</span>
-                <a href="https://www.bevy.com/" class="flex items-center space-x-2 hover:text-white" target="_blank">
+                <a href="https://www.bevy.com/" class="flex items-center space-x-2 hover:text-white" target="_blank" rel="noopener noreferrer">
                     <span>Powered by</span>
-                    <img src="https://raw.githubusercontent.com/thc1006/thc1006.github.io/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/powered_by_bevy.svg" class="h-4" alt="Bevy logo">
+                    <img loading="lazy" decoding="async" src="https://raw.githubusercontent.com/thc1006/thc1006.github.io/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/powered_by_bevy.svg" class="h-4" alt="Bevy logo">
                 </a>
             </div>
         </div>

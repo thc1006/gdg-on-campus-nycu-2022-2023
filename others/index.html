@@ -3,8 +3,21 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://raw.githubusercontent.com">
   <title>GDSC NYCU Yearbook 2022–2023</title>
+    <link rel="canonical" href="https://thc1006.github.io/gdg-on-campus-nycu-2022-2023/others/">
   <meta name="description" content="GDSC NYCU Yearbook 2022–2023: KPIs, annual timeline, full event lineup, and resource links. Built with vanilla JS, Tailwind, and Chart.js; ready for GitHub Pages." />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="GDSC NYCU Yearbook 2022–2023">
+    <meta property="og:description" content="GDSC NYCU Yearbook 2022–2023: KPIs, annual timeline, full event lineup, and resource links. Built with vanilla JS, Tailwind, and Chart.js; ready for GitHub Pages.">
+    <meta property="og:url" content="https://thc1006.github.io/gdg-on-campus-nycu-2022-2023/others/">
+    <meta property="og:image" content="https://raw.githubusercontent.com/thc1006/thc1006.github.io/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/google-io-extended-2023-hsinchu-1-320.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GDSC NYCU Yearbook 2022–2023">
+    <meta name="twitter:description" content="GDSC NYCU Yearbook 2022–2023: KPIs, annual timeline, full event lineup, and resource links. Built with vanilla JS, Tailwind, and Chart.js; ready for GitHub Pages.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/thc1006/thc1006.github.io/main/See%20Google%20I_O%20Extended%202023%20Hsinchu%20at%20Google%20Developer%20Student%20Clubs%20National%20Yang%20Ming%20Chiao%20Tung%20University_files/google-io-extended-2023-hsinchu-1-320.jpg">
   <meta name="author" content="GDSC NYCU" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -267,7 +280,7 @@
         const tags = (ev.topics || []).map(t => `<span class="px-2 py-1 rounded-lg bg-slate-100 text-xs">${t}</span>`).join('');
         const rsvps = ev.attendance && ev.attendance.rsvps!=null ? fmt(ev.attendance.rsvps) : '—';
         const checks = ev.attendance && ev.attendance.checkins!=null ? fmt(ev.attendance.checkins) : '—';
-        const btn = (href, text) => (href ? `<a href="${href}" target="_blank" class="text-sm px-3 py-2 rounded-lg border border-slate-200 hover:bg-slate-50">${text}</a>` : '');
+        const btn = (href, text) => (href ? `<a href="${href}" target="_blank" rel="noopener noreferrer" class="text-sm px-3 py-2 rounded-lg border border-slate-200 hover:bg-slate-50">${text}</a>` : '');
 
         const card = document.createElement('article');
         card.className = 'rounded-2xl border border-slate-200 bg-white p-6 flex flex-col gap-4';
