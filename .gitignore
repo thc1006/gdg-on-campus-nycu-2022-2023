@@ -1,0 +1,10 @@
+# Chrome / browser "Save page as" artifacts — third-party site dumps, never part of this site.
+# (This is what bloated the repo with ~100 MB of Bevy/SlideShare/Google JS & CSS.)
+*.下載
+*.chunk.js
+saved_resource*
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
